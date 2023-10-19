@@ -29,7 +29,7 @@
                             <label>Password:</label>
                             <input type="password" name="txtpass" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+                        <button type="submit" name="accion" class="btn btn-primary btn-lg btn-block">Ingresar</button>
                     </form>
                 </div>
             </div>
