@@ -27,7 +27,7 @@ public class Controlador extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         String accion=request.getParameter("accion");
         switch(accion){
             case "Principal":

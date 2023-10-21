@@ -19,20 +19,18 @@ public class EmpleadoDAO {
     PreparedStatement ps;
     ResultSet rs;
     
-    public Empleado validar(String user, String dni){
+    public Empleado validar(String user, String cedula){
         Empleado emp=new Empleado();
-        String sql="SELECT * FROM empleado WHERE User=? and Dni=?";
+        String sql="SELECT * FROM empleado WHERE user=? and cedula=?";
         try{
             con=cn.getConexion();
             ps=con.prepareStatement(sql);
             ps.setString(1,user);
-            ps.setString(1,dni);
+            ps.setString(2,cedula);
             rs=ps.executeQuery();
             while(rs.next()){
-                emp.setId(rs.getInt("IdEmpleado"));
-                emp.setUser(rs.getString("User"));
-                emp.setDni(rs.getString("Dni"));
-                emp.setNom(rs.getString("Nombres"));
+                emp.setCedula(rs.getInt("cedula"));
+                emp.setUser(rs.getString("user"));
             }
             
         }catch(Exception e){

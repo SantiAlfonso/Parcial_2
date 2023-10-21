@@ -9,8 +9,7 @@ package Modelo;
  * @author Santiago199
  */
 public class Empleado {
-    private int id;
-    private String dni;
+    private int cedula;
     private String nom;
     private String tel;
     private String estado;
@@ -19,34 +18,20 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(int id, String dni, String nom, String tel, String estado, String user) {
-        this.id = id;
-        this.dni = dni;
+    public Empleado(int cedula, String nom, String tel, String estado, String user) {
+        this.cedula = cedula;
         this.nom = nom;
         this.tel = tel;
         this.estado = estado;
         this.user = user;
     }
 
-    @Override
-    public String toString() {
-        return "Empleado{" + "id=" + id + ", dni=" + dni + ", nom=" + nom + ", tel=" + tel + ", estado=" + estado + ", user=" + user + '}';
+    public int getCedula() {
+        return cedula;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
     }
 
     public String getNom() {

@@ -9,21 +9,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Santiago199
- */
 public class Conexion {
-    private String DB="secretaria",USR="root",KEY="123456",HST="localhost",URL="jdbc:mysql://"+HST+":3306/"+DB;
-    Connection con=null;
-    
-    public Connection getConexion(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection(this.URL,this.USR,this.KEY);
-        }catch(SQLException | ClassNotFoundException ex){
-            JOptionPane.showMessageDialog(null, "Error al establecer la conexion con la BD...","Conexion",1);
+    private Connection con;
+    private String url = "jdbc:mysql://localhost:3306/sis_ventas";
+    private String user = "root";
+    private String pass = "123456";
+
+    public Connection getConexion() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Use "com.mysql.cj.jdbc.Driver" for newer versions of MySQL Connector/J.
+            con = DriverManager.getConnection(url, user, pass);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"ERROR AL CONECTAR CON LA BASE DE DATOS");
+           
         }
         return con;
-  }
+    }
+           
 }

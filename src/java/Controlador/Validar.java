@@ -74,12 +74,15 @@ public class Validar extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         processRequest(request, response);
+        
         String accion=request.getParameter("accion");
-        if(accion.equals("Ingresar")){
+        
+        if(accion.equalsIgnoreCase("Ingresar")){
             String user=request.getParameter("txtuser");
             String pass=request.getParameter("txtpass");
+            System.out.println(user);
             emp=edao.validar(user, pass);
             if(emp.getUser()!=null){
                 request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
