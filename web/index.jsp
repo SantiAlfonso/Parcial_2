@@ -16,7 +16,7 @@
         <div class="container mt-4 col-lg-4">
             <div class="card col-sm-10">
                 <div class="cad-body">
-                    <form action="Validar" method="post">
+                    <form class="form-sign">
                         <div class='form-group text-center'>
                             <h3>Login</h3>
                             <img src="img/logo.png" alt="70" width="170"/>

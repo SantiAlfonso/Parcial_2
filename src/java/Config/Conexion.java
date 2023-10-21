@@ -2,29 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Config;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class Conexion {
-    private Connection con;
-    private String url = "jdbc:mysql://localhost:3306/sis_ventas";
-    private String user = "root";
-    private String pass = "123456";
 
-    public Connection getConexion() {
+    private final String base = "sis_ventas";
+    private final String user = "root";
+    private final String password = "123456";
+    private final String url = "jdbc:mysql://localhost:3306/" + base;
+    private final String driver = "com.mysql.cj.jdbc.Driver";
+    private Connection con = null;
+
+    public Connection Conexion() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Use "com.mysql.cj.jdbc.Driver" for newer versions of MySQL Connector/J.
-            con = DriverManager.getConnection(url, user, pass);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR AL CONECTAR CON LA BASE DE DATOS");
-           
+            Class.forName(driver);
+            con = (Connection) DriverManager.getConnection(this.url, this.user, this.password);
+            JOptionPane.showMessageDialog(null, "CONEXION EXITOSA A LA BD");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "NO SE PUDO CONECTAR CON LA BASE" + e);
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "NO SE PUDO CONECTAR CON LA BASE" + ex);
         }
         return con;
     }
-           
 }
